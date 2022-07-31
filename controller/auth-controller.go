@@ -1,6 +1,10 @@
 package controller
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
 
 //AuthController interface is a contract what this controller can do
 type AuthController interface {
@@ -13,8 +17,19 @@ type authController struct {
 	//this is where you put your service
 }
 
+//NewAuthController creates a new instance of AuthController
 func NewAuthController() AuthController {
 	return &authController{}
 }
 
-func (c *authController) Login(ct)
+func (c *authController) Login(ctx *gin.Context) {
+	ctx.JSON(http.StatusOK, gin.H{
+		"message": "hello Login",
+	})
+}
+
+func (c *authController) Register(ctx *gin.Context) {
+	ctx.JSON(http.StatusOK, gin.H{
+		"message": "hello Login",
+	})
+}
